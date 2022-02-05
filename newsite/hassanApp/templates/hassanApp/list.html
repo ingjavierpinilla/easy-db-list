@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block personlist %}
+<h3>Person list</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      {% for column_name in namen_der_spalten %}
+      <th>{{column_name.name}}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for person in personen_die_ich_auflisten_will %}
+    <tr>
+      <td><a href="/{{ person.id }}/update">{{ person.id }}</a></td>
+      <td>{{ person.first_name }}</td>
+      <td>{{ person.last_name }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
